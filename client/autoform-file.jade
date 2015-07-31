@@ -1,0 +1,23 @@
+template(name='afFileField')
+  .af-file-upload
+    if file
+      if file.isUploaded
+        +Template.dynamic template=previewTemplate data=file
+        div
+          a.aff-remove(href='#')
+            i.fa.fa-times
+            | #{atts.removeLabel}
+      else
+        span #{atts.uploadLabel}
+    else
+      button.btn.btn-default.aff-select(type='button') #{atts.label}
+      input.hidden.aff-file(type='file' accept=atts.accept)
+    input.aff-value(type='hidden' value=value $dyn=dsk)
+
+template(name='afFileFieldThumbIcon')
+  a.btn.btn-default(href=url target='_blank')
+    i.fa(class="fa-#{icon}")
+    | #{original.name}
+
+template(name='afFileFieldThumbImg')
+  img.img-fileUpload-thumbnail.img-thumbnail.img-rounded(src=url alt='')
