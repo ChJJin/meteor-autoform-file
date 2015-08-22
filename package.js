@@ -20,6 +20,9 @@ Package.onUse(function(api) {
     'fortawesome:fontawesome@4.3.0'
   ]);
 
+  //private package
+  api.use('b-plus:form');
+
   api.addFiles([
     'client/autoform-file.jade',
     'client/autoform-file.ls',
